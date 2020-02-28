@@ -55,13 +55,11 @@ function refreshDeviceList(){
 
 function onDiscoverDevice(device){
 	//Make a list in html and show devises
-	if(device.name == "STATUE"){
-		/*
+	if(device.name == "meme"){
 		var listItem = document.createElement('li'),
 		html = device.name+ "," + device.id;
 		listItem.innerHTML = html;
-		document.getElementById("bleDeviceList").appendChild(listItem);
-		*/
+		document.getElementById("bleDeviceList").appendChild(listItem)
 		test()
 	}
 }
@@ -74,7 +72,7 @@ function onError(reason)  {
 
 
 function test(){
-	var url='https://zarram.000webhostapp.com/';	
+	var url='https://zarram.000webhostapp.com';	
 	openBrowser(url);
 }
 
@@ -83,4 +81,7 @@ function openBrowser(url) {
    var options = "location=no"
    var ref = cordova.InAppBrowser.open(url, target, options);
 }
+
+
+
 
