@@ -55,7 +55,7 @@ function refreshDeviceList(){
 
 function onDiscoverDevice(device){
 	//If beacon findes, så gå til test()
-	if(device.name == "Beacon_Indgang"){
+	if(device.name == "indgang"){
 		var listItem = document.createElement('li'),
 		html = device.name+ "," + device.id;
 		listItem.innerHTML = html;
