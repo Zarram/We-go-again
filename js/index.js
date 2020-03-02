@@ -72,7 +72,7 @@ function onError(reason)  {
 
 
 function test(){
-	var url='https://zarram.000webhostapp.com';	
+	var url='https://TheHandsomeScone.000webhostapp.com';	
 	openBrowser(url);
 }
 
