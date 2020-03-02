@@ -77,8 +77,6 @@ void setup(void)
   /* Print Bluefruit information */
   ble.info();
 
-
-
   ble.verbose(false);  // debug info is a little annoying after this point!
 
 
@@ -93,7 +91,7 @@ void setup(void)
   }
 
   //Give module a new name
-  ble.println("AT+GAPDEVNAME=TLONE"); // named TLONE
+  ble.println("AT+GAPDEVNAME=Beacon_Indgang"); // named TLONE
 
   // Check response status
   ble.waitForOK();
@@ -109,35 +107,5 @@ void setup(void)
   Serial.println(F("******************************"));
 }
 
-/**************************************************************************/
-/*!
-    @brief  Constantly poll for new command or response data
-*/
-/**************************************************************************/
-void loop(void)
-{
-  // Check for user input
-  char n, inputs[BUFSIZE + 1];
-
-  if (Serial.available())
-  {
-    n = Serial.readBytes(inputs, BUFSIZE);
-    inputs[n] = 0;
-    // Send characters to Bluefruit
-    Serial.print("Sending: ");
-    Serial.println(inputs);
-
-    // Send input data to host via Bluefruit
-    ble.print(inputs);
-  }
-  if (ble.available()) {
-    Serial.print("* "); Serial.print(ble.available()); Serial.println(F(" bytes available from BTLE"));
-  }
-  // Echo received data
-  while ( ble.available() )
-  {
-    int c = ble.read();
-    Serial.print((char)c);
-  }
-  delay(1000);
+void loop(){
 }
