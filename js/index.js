@@ -54,8 +54,8 @@ function refreshDeviceList(){
 
 
 function onDiscoverDevice(device){
-	//Make a list in html and show devises
-	if(device.name == "meme"){
+	//If beacon findes, så gå til test()
+	if(device.name == "Beacon Indgang"){
 		var listItem = document.createElement('li'),
 		html = device.name+ "," + device.id;
 		listItem.innerHTML = html;
