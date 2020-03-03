@@ -37,12 +37,6 @@ void error(const __FlashStringHelper*err) {
   while (1);
 }
 
-/**************************************************************************/
-/*!
-    @brief  Sets up the HW an the BLE module (this function is called
-            automatically on startup)
-*/
-/**************************************************************************/
 void setup(void)
 {
   while (!Serial);  // required for Flora & Micro
@@ -92,6 +86,7 @@ void setup(void)
 
   //Give module a new name
   ble.println("AT+GAPDEVNAME=Beacon_Indgang"); // named TLONE
+
 
   // Check response status
   ble.waitForOK();
