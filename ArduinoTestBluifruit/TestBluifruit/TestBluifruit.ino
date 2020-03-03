@@ -85,7 +85,7 @@ void setup(void)
   }
 
   //Give module a new name
-  ble.println("AT+GAPDEVNAME=Beacon_Indgang"); // named TLONE
+  ble.println("AT+GAPDEVNAME=indgang");
 
 
   // Check response status
@@ -95,6 +95,7 @@ void setup(void)
   while (! ble.isConnected()) {
     delay(500);
   }
+
   // Set module to DATA mode
   Serial.println( F("Switching to DATA mode!") );
   ble.setMode(BLUEFRUIT_MODE_DATA);
