@@ -37,6 +37,12 @@ void error(const __FlashStringHelper*err) {
   while (1);
 }
 
+/**************************************************************************/
+/*!
+    @brief  Sets up the HW an the BLE module (this function is called
+            automatically on startup)
+*/
+/**************************************************************************/
 void setup(void)
 {
   while (!Serial);  // required for Flora & Micro
@@ -71,6 +77,8 @@ void setup(void)
   /* Print Bluefruit information */
   ble.info();
 
+
+
   ble.verbose(false);  // debug info is a little annoying after this point!
 
 
@@ -83,11 +91,11 @@ void setup(void)
     Serial.println(F("Change LED activity to " MODE_LED_BEHAVIOUR));
     ble.sendCommandCheckOK("AT+HWModeLED=" MODE_LED_BEHAVIOUR);
   }
+ 
 
   //Give module a new name
-  ble.println("AT+GAPDEVNAME=indgang");
-
-
+  ble.println("AT+GAPDEVNAME=Beacon_Indgang"); // named TLONE
+  
   // Check response status
   ble.waitForOK();
 
@@ -95,13 +103,13 @@ void setup(void)
   while (! ble.isConnected()) {
     delay(500);
   }
-
   // Set module to DATA mode
   Serial.println( F("Switching to DATA mode!") );
   ble.setMode(BLUEFRUIT_MODE_DATA);
 
   Serial.println(F("******************************"));
 }
-
-void loop(){
+void loop(void)
+{
+ 
 }
