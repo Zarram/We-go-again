@@ -46,12 +46,8 @@ function refreshDeviceList(){
 	document.getElementById("bleDeviceList").innerHTML = ''; // empties the list
 	if (cordova.platformId === 'android') { // Android filtering is broken
 		ble.scan([], 5, onDiscoverDevice, onError);
-	} else {
-		//alert("Disconnected");
-		ble.scan([blue.serviceUUID], 5, onDiscoverDevice, onError);
-	}
+	} 
 }
-
 
 function onDiscoverDevice(device){
 	//If beacon findes, så gå til test()
@@ -60,7 +56,7 @@ function onDiscoverDevice(device){
 		html = device.name+ "," + device.id;
 		listItem.innerHTML = html;
 		document.getElementById("bleDeviceList").appendChild(listItem)
-		test()
+		openBrowser()
 	}
 }
 
@@ -69,14 +65,8 @@ function onError(reason)  {
 	alert("ERROR: " + reason); // real apps should use notification.alert
 }
 
-
-
-function test(){
-	var url='https://TheHandsomeScone.000webhostapp.com';	
-	openBrowser(url);
-}
-
-function openBrowser(url) {
+function openBrowser() {
+   var url='https://TheHandsomeScone.000webhostapp.com';
    var target = '_blank';
    var options = "location=no"
    var ref = cordova.InAppBrowser.open(url, target, options);
